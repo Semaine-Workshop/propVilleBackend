@@ -1,4 +1,15 @@
 //imports
 const config = require('./config.js');
 
-//initialize express
+const mysql = require("mysql");
+
+const debug = config.debug || false;
+
+// Database connection
+if (debug) console.log("Connecting to database...");
+const db = mysql.createConnection(config.database);
+db.connect((err) => {
+    if (err) throw err;
+    if (debug) console.log("Connected to database.");
+});
+
