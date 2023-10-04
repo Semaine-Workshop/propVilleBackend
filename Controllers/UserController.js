@@ -177,3 +177,5 @@ function initUser(db) {
         });
     });
 }
+
+module.exports = initUser;
