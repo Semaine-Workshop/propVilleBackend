@@ -7,7 +7,7 @@ const debugHard = false;
 
 function initUser(db, app) {
 
-    app.get("/get/Users", (req, res) => {
+    app.get("/get/user", (req, res) => {
         if (debug) console.log("GET /user");
 
         let query = "SELECT * FROM user";

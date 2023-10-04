@@ -3,6 +3,7 @@ const config = require('./config.js');
 
 const initRoles = require('./Controllers/RolesController.js');
 const initUser = require('./Controllers/UserController.js');
+const initReports = require('./Controllers/ReportsController.js');
 
 const mysql = require("mysql");
 const express = require("express");
@@ -29,6 +30,8 @@ db.connect((err) => {
 
 initRoles(db, app);
 initUser(db, app);
+initReports(db, app);
+
 
 const PORT = config.port || 4201;
 app.listen(PORT, () => {
