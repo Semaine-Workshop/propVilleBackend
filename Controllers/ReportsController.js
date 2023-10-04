@@ -10,7 +10,7 @@ function initReports(db, app) {
     app.get('/get/Reports', (req, res) => {
         if (debug) console.log('GET /Reports');
 
-        let query = 'SELECT * FROM Reports';
+        let query = 'SELECT * FROM reports';
         let params = [];
 
         query = mysql.format(query, params);
@@ -28,7 +28,7 @@ function initReports(db, app) {
 
         const idReports = req.query.idReports;
 
-        let query = 'SELECT * FROM Reports WHERE id = ?';
+        let query = 'SELECT * FROM reports WHERE id = ?';
         let params = [idReports];
 
         query = mysql.format(query, params);
@@ -46,7 +46,7 @@ function initReports(db, app) {
 
         const idUser = req.query.idUser;
 
-        let query = 'SELECT * FROM Reports WHERE idUser = ?';
+        let query = 'SELECT * FROM reports WHERE idUser = ?';
         let params = [idUser];
 
         query = mysql.format(query, params);
@@ -64,7 +64,7 @@ function initReports(db, app) {
 
         const Date = req.query.Date;
 
-        let query = 'SELECT * FROM Reports WHERE Date = ?';
+        let query = 'SELECT * FROM reports WHERE date = ?';
         let params = [Date];
 
         query = mysql.format(query, params);
@@ -83,7 +83,7 @@ function initReports(db, app) {
         const idUser = req.body.idUser;
         const Date = req.body.Date;
 
-        let query = 'INSERT INTO Reports (idUser, Date) VALUES (?, ?)';
+        let query = 'INSERT INTO reports (idUser, date) VALUES (?, ?)';
         let params = [idUser, Date];
 
         query = mysql.format(query, params);
