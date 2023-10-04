@@ -15,7 +15,12 @@ db.connect((err) => {
         console.error("Error connecting to database: ");
         throw err
     };
-    if (debug) console.log("Connected to database.");
+    console.log("Connected to database.");
 });
 
 initUser(db);
+
+const PORT = config.port || 3000;
+app.listen(PORT, () => {
+  console.log(`Serveur démarré sur le port ${PORT}`);
+});
