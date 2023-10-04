@@ -5,6 +5,13 @@ const initRoles = require('./Controllers/RolesController.js');
 const initUser = require('./Controllers/UserController.js');
 
 const mysql = require("mysql");
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
 
 const debug = config.debug || false;
 
