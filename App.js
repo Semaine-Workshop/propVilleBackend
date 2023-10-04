@@ -27,10 +27,10 @@ db.connect((err) => {
 });
 
 
-initRoles(db);
-initUser(db);
+initRoles(db, app);
+initUser(db, app);
 
-const PORT = config.port || 3000;
+const PORT = config.port || 4201;
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur le port ${PORT}`);
 });
