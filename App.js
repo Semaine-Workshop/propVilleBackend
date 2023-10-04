@@ -1,5 +1,6 @@
 //imports
 const config = require('./config.js');
+const initRoles = require('./Controllers/RolesController.js');
 
 const mysql = require("mysql");
 
@@ -13,3 +14,4 @@ db.connect((err) => {
     if (debug) console.log("Connected to database.");
 });
 
+initRoles(db);

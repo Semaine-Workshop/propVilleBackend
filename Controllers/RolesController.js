@@ -14,7 +14,7 @@ const debugHard = false;
 
 function initRoles(db) {
 
-    app.get("/get/Roles", (req, res) =>{
+    app.get("/get/Roles", (req, res) => {
         
         if (debug) {
             console.log("GET /roles");
@@ -32,4 +32,8 @@ function initRoles(db) {
             res.send(result);
         });
     });
+
 }
+
+
+module.exports = initRoles;
