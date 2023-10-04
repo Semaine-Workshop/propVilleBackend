@@ -27,7 +27,7 @@ function initRoles(db) {
 
         db.query(query, (err, result) => {
             if (err) throw err;
-            if (debugHard) console.log("Result: ", result)
+            if (debugHard) console.log("Result: ", result);
 
             res.send(result);
         });
