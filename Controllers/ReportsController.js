@@ -10,7 +10,7 @@ function initReports(db, app) {
     app.get('/get/Reports', (req, res) => {
         if (debug) console.log('GET /Reports');
 
-        let query = 'SELECT * FROM Reports';
+        let query = 'SELECT * FROM reports';
         let params = [];
 
         query = mysql.format(query, params);
@@ -28,7 +28,7 @@ function initReports(db, app) {
 
         const idReports = req.query.idReports;
 
-        let query = 'SELECT * FROM Reports WHERE id = ?';
+        let query = 'SELECT * FROM reports WHERE id = ?';
         let params = [idReports];
 
         query = mysql.format(query, params);
@@ -46,7 +46,7 @@ function initReports(db, app) {
 
         const idUser = req.query.idUser;
 
-        let query = 'SELECT * FROM Reports WHERE idUser = ?';
+        let query = 'SELECT * FROM reports WHERE idUser = ?';
         let params = [idUser];
 
         query = mysql.format(query, params);
@@ -59,12 +59,12 @@ function initReports(db, app) {
         });
     });
 
-    app.get('/get/Reports/Date', (req, res) => {
+    app.get('/get/Reports/date', (req, res) => {
         if (debug) console.log('GET /Reports/Date');
 
         const Date = req.query.Date;
 
-        let query = 'SELECT * FROM Reports WHERE Date = ?';
+        let query = 'SELECT * FROM reports WHERE Date = ?';
         let params = [Date];
 
         query = mysql.format(query, params);
@@ -80,15 +80,24 @@ function initReports(db, app) {
     app.post('/post/Reports', (req, res) => {
         if (debug) console.log('POST /Reports');
 
-        const idUser = req.body.idUser;
-        const Date = req.body.Date;
+        const newReport = req.body;
 
-        let query = 'INSERT INTO Reports (idUser, Date) VALUES (?, ?)';
-        let params = [idUser, Date];
+        if (newReport.idUser == undefined || newReport.info == undefined || newReport.localisation == undefined) {
+            res.send('Error: Missing parameters');
+            return;
+        }
 
-        query = mysql.format(query, params);
+        const reportToInsert = {
+            idUser: newReport.idUser,
+            Date: new Date(),
+            info: newReport.info,
+            localisation: newReport.localisation,
+            status: false,
+        };
 
-        db.query(query, (err, result) => {
+        const query = 'INSERT INTO reports SET ?';
+
+        db.query(query, reportToInsert, (err, result) => {
             if (err) throw err;
 
             res.send(result);

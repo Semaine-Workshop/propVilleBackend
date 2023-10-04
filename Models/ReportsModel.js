@@ -2,7 +2,7 @@ module.exports = {
     id: Number,
     idUser: Number,
     date: Date,
-    photo: Text,
+    info: Text,
     localisation: Double,
     status: Boolean,
     
