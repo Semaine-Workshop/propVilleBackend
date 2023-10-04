@@ -1,6 +1,8 @@
 //imports
 const config = require('./config.js');
 
+const initUser = require('./Controllers/UserController.js');
+
 const mysql = require("mysql");
 
 const debug = config.debug || false;
@@ -9,7 +11,11 @@ const debug = config.debug || false;
 if (debug) console.log("Connecting to database...");
 const db = mysql.createConnection(config.database);
 db.connect((err) => {
-    if (err) throw err;
+    if (err) {
+        console.error("Error connecting to database: ");
+        throw err
+    };
     if (debug) console.log("Connected to database.");
 });
 
+initUser(db);

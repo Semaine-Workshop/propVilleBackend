@@ -1,6 +1,6 @@
 module.exports = {
     database: {
-        host: '', // Adresse du serveur; String
+        host: '10.60.105.37', // Adresse du serveur; String
         user: 'dev', // Utilisateur; String
         password: 'm9L4#83WzY=m%f', // Mot de passe; String
         database: 'dev', // Nom de la base de données; String
