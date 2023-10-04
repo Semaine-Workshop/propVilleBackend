@@ -1,18 +1,11 @@
 const config = require("../config.js");
 
 const mysql = require("mysql");
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-
-const app = express();
-app.use(cors());
-app.use(bodyParser.json());
 
 const debug = config.debug || false;
 const debugHard = false;
 
-function initUser(db) {
+function initUser(db, app) {
 
     app.get("/get/Users", (req, res) => {
         if (debug) console.log("GET /user");
