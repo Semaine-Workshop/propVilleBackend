@@ -8,6 +8,8 @@ const debugHard = false;
 function initUser(db, app) {
 
     app.get("/get/user", (req, res) => {
+        console.log("METHOD", req.method)
+        console.log("BODY", req.body)
         if (debug) console.log("GET /user");
 
         let query = "SELECT * FROM user";
@@ -98,7 +100,7 @@ function initUser(db, app) {
             nom: newUser.nom,
             prenom: newUser.prenom,
             points: 0, // Valeur par défaut
-            role: newUser.role || "user", // Utilisateur par défaut, ajuste selon tes besoins
+            roles: newUser.role || "user", // Utilisateur par défaut, ajuste selon tes besoins
             cdate: new Date(), // Date actuelle
             email: newUser.email,
             password: newUser.password,

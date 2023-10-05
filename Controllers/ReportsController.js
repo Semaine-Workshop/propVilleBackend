@@ -81,14 +81,26 @@ function initReports(db, app) {
         if (debug) console.log('POST /Reports');
 
         const idUser = req.body.idUser;
-        const Date = req.body.Date;
+        //const Date = req.body.Date;
+        
 
-        let query = 'INSERT INTO reports (idUser, date) VALUES (?, ?)';
-        let params = [idUser, Date];
+        let query = 'INSERT INTO reports SET ?';
+        //let params = [idUser, new Date()];
 
-        query = mysql.format(query, params);
+        // Ajouter des valeurs par défaut
+        const reportsToInsert = {
+            idUser: req.body.idUser,
+            status: 1,
+            photo: "null",
+            date: new Date(),
+            localisation:0.0,
+            idTechnicien:0
 
-        db.query(query, (err, result) => {
+        };
+
+        //query = mysql.format(query, params);
+
+        db.query(query, reportsToInsert, (err, result) => {
             if (err) throw err;
 
             res.send(result);
