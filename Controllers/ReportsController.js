@@ -81,7 +81,7 @@ function initReports(db, app) {
         if (debug) console.log('POST /Reports');
 
         const idUser = req.body.idUser;
-        //const Date = req.body.Date;
+        const localisation = req.body.localisation;
         
 
         let query = 'INSERT INTO reports SET ?';
@@ -93,9 +93,8 @@ function initReports(db, app) {
             status: 1,
             photo: "null",
             date: new Date(),
-            localisation:0.0,
+            localisation:req.body.localisation,
             idTechnicien:0
-
         };
 
         //query = mysql.format(query, params);
