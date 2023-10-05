@@ -91,7 +91,7 @@ function initReports(db, app) {
         const reportsToInsert = {
             idUser: req.body.idUser,
             status: 1,
-            photo: "null",
+            photo: req.body.photo || "null",
             date: new Date(),
             localisation:req.body.localisation,
             idTechnicien:0
