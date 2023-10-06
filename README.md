@@ -7,7 +7,7 @@ Pour lancer l'API vous devez suivre les étapes suivantes:
 - Lancez la commande `npm start` dans le dossier de l'API 
 
 ## Guide d'utilisation de l'API:
-Par défaut l'API est lancé sur le port 4201.
+Par défaut l'API est lancé sur le port `4201`.
 Vous pouvez l'utiliser avec les routes suivantes:
 
 **Users:**
