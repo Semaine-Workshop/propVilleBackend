@@ -8,5 +8,5 @@ module.exports = {
     },
     port: 4201, // Port de l'API; Number
     createTable: false, // Possibilitée de créer la table si elle n'existe pas; Boolean
-    debug: true, // Affiche les logs dans la console; Boolean
+    debug: false, // Affiche les logs dans la console; Boolean
 };
